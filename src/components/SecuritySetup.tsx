@@ -16,13 +16,14 @@ const SecuritySetup: React.FC = () => {
 	}, []);
 
 	const fetchConfig = () => {
-		apiFetch({ path: '/wp-2fa-digibayt/v1/user/config' }).then((res: any) => {
-			setConfig(res);
+		// Use timestamp to bypass any REST API caching
+		apiFetch({ path: `/wp-2fa-digibayt/v1/user/config?_=${Date.now()}` }).then((res: any) => {
+			if (res) setConfig(res);
 		});
 	};
 
 	const startTotpSetup = () => {
-		apiFetch({ path: '/wp-2fa-digibayt/v1/user/totp/setup' }).then((res: any) => {
+		apiFetch({ path: `/wp-2fa-digibayt/v1/user/totp/setup?_=${Date.now()}` }).then((res: any) => {
 			setTotpSetup(res);
 			setIsModalOpen(true);
 		});
@@ -36,7 +37,8 @@ const SecuritySetup: React.FC = () => {
 		}).then(() => {
 			setNotice({ type: 'success', msg: 'TOTP enabled successfully!' });
 			setIsModalOpen(false);
-			fetchConfig();
+			setConfig({ ...config, enabled: true }); // Immediate update
+			fetchConfig(); // Background refresh
 		}).catch((err) => {
 			setNotice({ type: 'error', msg: err.message || 'Invalid code.' });
 		});

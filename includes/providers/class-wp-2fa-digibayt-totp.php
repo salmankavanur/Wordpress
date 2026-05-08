@@ -66,11 +66,16 @@ class WP_2FA_DigiBayt_TOTP {
 	}
 
 	/**
-	 * Get QR Code URL (Placeholder for now to avoid DNS issues)
+	 * Get QR Code URL
 	 */
-	public function get_qr_code_url( $name, $secret, $issuer = 'WP 2FA DigiBayt' ) {
+	public function get_qr_code_url( $name, $secret, $issuer = '' ) {
+		if ( empty( $issuer ) ) {
+			$issuer = get_bloginfo( 'name' );
+		}
+		
+		// Clean issuer and name for URL safety
+		$issuer = str_replace( ':', '-', $issuer );
 		$url = 'otpauth://totp/' . rawurlencode( $issuer . ':' . $name ) . '?secret=' . $secret . '&issuer=' . rawurlencode( $issuer );
-		// Returning the raw URL - the frontend can use a local QR library in the next phase
 		return $url; 
 	}
 

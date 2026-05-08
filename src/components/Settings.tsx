@@ -13,7 +13,13 @@ const Settings: React.FC = () => {
 
 	useEffect(() => {
 		apiFetch({ path: '/wp-2fa-digibayt/v1/settings' }).then((res: any) => {
-			if (res) setSettings(res);
+			if (res && typeof res === 'object' && !Array.isArray(res)) {
+				setSettings({
+					enforce_admins: !!res.enforce_admins,
+					grace_period: parseInt(res.grace_period) || 0,
+					remember_device: parseInt(res.remember_device) || 0,
+				});
+			}
 		});
 	}, []);
 

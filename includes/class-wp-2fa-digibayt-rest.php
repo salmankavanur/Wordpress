@@ -110,12 +110,15 @@ class WP_2FA_DigiBayt_REST {
 		$user = wp_get_current_user();
 		$secret = $totp->generate_secret();
 		
+		// Use Site Name and Host as Issuer for better identification in apps
+		$issuer = sprintf( '%s (%s)', get_bloginfo( 'name' ), parse_url( home_url(), PHP_URL_HOST ) );
+		
 		// Temporarily store secret in user meta until verified
 		update_user_meta( $user->ID, '_wp_2fa_digibayt_totp_pending_secret', $secret );
 
 		return rest_ensure_response( array(
 			'secret' => $secret,
-			'qr_url' => $totp->get_qr_code_url( $user->user_login, $secret ),
+			'qr_url' => $totp->get_qr_code_url( $user->user_login, $secret, $issuer ),
 		) );
 	}
 
@@ -165,7 +168,7 @@ class WP_2FA_DigiBayt_REST {
 	 * Check if user is administrator
 	 */
 	public function check_admin_permission() {
-		return current_user_can( WP_2FA_Auth_DigiBayt::get_admin_capability() );
+		return current_user_can( 'manage_options' );
 	}
 
 	/**
@@ -179,7 +182,14 @@ class WP_2FA_DigiBayt_REST {
 	 * Get global settings
 	 */
 	public function get_settings() {
+		$defaults = array(
+			'enforce_admins'  => false,
+			'grace_period'    => 3,
+			'remember_device' => 30,
+		);
 		$settings = get_option( 'wp_2fa_digibayt_settings', array() );
+		$settings = wp_parse_args( $settings, $defaults );
+		
 		return rest_ensure_response( $settings );
 	}
 
