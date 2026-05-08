@@ -2,14 +2,18 @@
 /**
  * Plugin Name:       WP 2FA Auth by DigiBayt
  * Plugin URI:        https://digibayt.com/wp-2fa-auth
- * Description:       A premium, full-featured Two-Factor Authentication (2FA) plugin for WordPress.
+ * Description:       Secure your WordPress site with TOTP (Authenticator Apps), Backup Codes, and Security Audit Logs. Features local QR generation for maximum privacy.
  * Version:           1.0.0
  * Author:            DigiBayt
  * Author URI:        https://digibayt.com
  * Text Domain:       wp-2fa-digibayt
  * Domain Path:       /languages
+ * License:           GPLv2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Requires at least: 5.8
  * Requires PHP:      7.4
+ * License:           GPLv2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
