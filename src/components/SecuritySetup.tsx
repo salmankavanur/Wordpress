@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, TextControl, Notice, Modal } from '@wordpress/components';
 import apiFetch from '@wordpress/api-fetch';
+import { QRCodeCanvas } from 'qrcode.react';
 
 const SecuritySetup: React.FC = () => {
 	const [config, setConfig] = useState<any>(null);
@@ -90,19 +91,12 @@ const SecuritySetup: React.FC = () => {
 				<Modal title="Setup Authenticator App" onRequestClose={() => setIsModalOpen(false)}>
 					<div className="totp-setup-modal">
 						<p>1. Scan the QR code below with your authenticator app (e.g., Google Authenticator, Authy).</p>
-						<div className="qr-code">
-							{totpSetup.qr_url.startsWith('http') ? (
-								<img src={totpSetup.qr_url} alt="QR Code" />
-							) : (
-								<div className="qr-fallback" style={{ padding: '20px', background: '#f0f0f1', wordBreak: 'break-all' }}>
-									<p><strong>Manual Entry Code:</strong></p>
-									<code>{totpSetup.secret}</code>
-									<p style={{ marginTop: '10px' }}><small>Scan the URL below or enter the secret manually in your app:</small></p>
-									<p style={{ fontSize: '10px' }}>{totpSetup.qr_url}</p>
-								</div>
-							)}
+						<div className="qr-code" style={{ padding: '20px', background: '#fff', display: 'inline-block', border: '1px solid #ddd', marginTop: '15px' }}>
+							<QRCodeCanvas value={totpSetup.qr_url} size={200} level="H" />
 						</div>
-						<p>2. Enter the 6-digit code from the app:</p>
+						<p style={{ marginTop: '10px' }}><strong>Manual Entry Code:</strong> <code>{totpSetup.secret}</code></p>
+						
+						<p style={{ marginTop: '20px' }}>2. Enter the 6-digit code from the app:</p>
 						<TextControl
 							value={verificationCode}
 							onChange={setVerificationCode}
