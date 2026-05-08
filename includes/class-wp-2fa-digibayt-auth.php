@@ -127,6 +127,7 @@ class WP_2FA_DigiBayt_Auth {
 				'event_type'  => $type,
 				'description' => $description,
 				'ip_address'  => $_SERVER['REMOTE_ADDR'],
+				'created_at'  => current_time( 'mysql' ),
 			)
 		);
 	}

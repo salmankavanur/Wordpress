@@ -12,8 +12,6 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Requires at least: 5.8
  * Requires PHP:      7.4
- * License:           GPLv2 or later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -31,8 +29,6 @@ $wp_2fa_core_files = array(
 	'includes/class-wp-2fa-digibayt-rest.php',
 	'includes/providers/class-wp-2fa-digibayt-totp.php',
 	'includes/providers/class-wp-2fa-digibayt-backup-codes.php',
-	'includes/providers/class-wp-2fa-digibayt-email.php',
-	'includes/providers/class-wp-2fa-digibayt-sms.php',
 );
 
 foreach ( $wp_2fa_core_files as $file ) {
