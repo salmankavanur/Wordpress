@@ -1,0 +1,120 @@
+{
+    "generated_at": "2026-05-09 18:21:36",
+    "plugin": "2FA Auth by DigiBayt",
+    "results": {
+        "includes/class-wp-2fa-digibayt-auth.php": [
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=31",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 31,
+                "column": 56
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=35",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 35,
+                "column": 78
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=41",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 41,
+                "column": 153
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=45",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 45,
+                "column": 106
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=66",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 66,
+                "column": 82
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=90",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 90,
+                "column": 63
+            }
+        ],
+        "2fa-auth-digibayt.php": [
+            {
+                "message": "The \"Text Domain\" header in the plugin file does not match the slug. Found \"wp-2fa-auth-digibayt\", expected \"2fa-auth-digibayt\".",
+                "code": "textdomain_mismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2F2fa-auth-digibayt.php",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 6,
+                "type": "WARNING",
+                "line": 0,
+                "column": 0
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2F2fa-auth-digibayt.php&line=72",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 72,
+                "column": 33
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2F2fa-auth-digibayt.php&line=73",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 73,
+                "column": 33
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2F2fa-auth-digibayt.php&line=85",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 85,
+                "column": 100
+            },
+            {
+                "message": "Mismatched text domain. Expected '2fa-auth-digibayt' but got 'wp-2fa-auth-digibayt'.",
+                "code": "WordPress.WP.I18n.TextDomainMismatch",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=2fa-auth-digibayt%2F2fa-auth-digibayt.php&file=2fa-auth-digibayt%2F2fa-auth-digibayt.php&line=118",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 118,
+                "column": 103
+            }
+        ]
+    }
+}

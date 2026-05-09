@@ -17,7 +17,7 @@ A premium-quality, full-featured **Two-Factor Authentication (2FA)** plugin for 
 ## 📦 Installation
 
 ### From Zip (Recommended)
-1. Download the latest `wp-2fa-auth-digibayt.zip`.
+1. Download the latest `2fa-auth-digibayt.zip`.
 2. In your WordPress Admin, go to **Plugins > Add New > Upload Plugin**.
 3. Choose the zip file and click **Install Now**, then **Activate**.
 

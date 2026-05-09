@@ -30,13 +30,13 @@ const AdminApp: React.FC = () => {
 	];
 
 	return (
-		<div className="wp-2fa-auth-digibayt-wrap">
-			<div className="header">
-				<h1>WP 2FA Auth by DigiBayt</h1>
+		<div className="2fa-auth-digibayt-wrap">
+			<header className="header">
+				<h1>2FA Auth by DigiBayt</h1>
 				<p className="description">
 					Manage your site's security with advanced 2FA features.
 				</p>
-			</div>
+			</header>
 
 			<TabPanel
 				className="main-tabs"

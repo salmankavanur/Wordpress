@@ -28,21 +28,21 @@ class WP_2FA_Auth_DigiBayt_Auth {
 			exit;
 		}
 
-		login_header( __( 'Two-Factor Authentication', 'wp-2fa-auth-digibayt' ) );
+		login_header( __( 'Two-Factor Authentication', '2fa-auth-digibayt' ) );
 		?>
 		<form name="2faform" id="2faform" action="<?php echo esc_url( wp_login_url() ); ?>" method="post">
 			<p>
-				<label for="2fa_code"><?php esc_html_e( 'Verification Code', 'wp-2fa-auth-digibayt' ); ?><br />
+				<label for="2fa_code"><?php esc_html_e( 'Verification Code', '2fa-auth-digibayt' ); ?><br />
 				<input type="text" name="2fa_code" id="2fa_code" class="input" value="" size="20" autofocus autocomplete="one-time-code" /></label>
 			</p>
 			<?php wp_nonce_field( 'wp_2fa_auth_digibayt_verify' ); ?>
 			<input type="hidden" name="wp-2fa-verify" value="1" />
 			<p class="submit">
-				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_attr__( 'Verify', 'wp-2fa-auth-digibayt' ); ?>" />
+				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_attr__( 'Verify', '2fa-auth-digibayt' ); ?>" />
 			</p>
 		</form>
 		<p id="backtoblog">
-			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( '&larr; Back to Login', 'wp-2fa-auth-digibayt' ); ?></a>
+			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php esc_html_e( '&larr; Back to Login', '2fa-auth-digibayt' ); ?></a>
 		</p>
 		<?php
 		login_footer();
@@ -63,7 +63,7 @@ class WP_2FA_Auth_DigiBayt_Auth {
 		$user_id = get_transient( 'wp_2fa_auth_digibayt_login_' . $token );
 
 		if ( ! $user_id ) {
-			wp_die( esc_html__( 'Session expired. Please try logging in again.', 'wp-2fa-auth-digibayt' ) );
+			wp_die( esc_html__( 'Session expired. Please try logging in again.', '2fa-auth-digibayt' ) );
 		}
 
 		$code = isset( $_POST['2fa_code'] ) ? sanitize_text_field( wp_unslash( $_POST['2fa_code'] ) ) : '';
@@ -87,7 +87,7 @@ class WP_2FA_Auth_DigiBayt_Auth {
 		} else {
 			// Fail!
 			$this->log_event( $user_id, 'login_failed', 'Failed 2FA login attempt' );
-			wp_die( esc_html__( 'Invalid verification code.', 'wp-2fa-auth-digibayt' ) );
+			wp_die( esc_html__( 'Invalid verification code.', '2fa-auth-digibayt' ) );
 		}
 	}
 
@@ -120,6 +120,7 @@ class WP_2FA_Auth_DigiBayt_Auth {
 	 */
 	private function log_event( $user_id, $type, $description ) {
 		global $wpdb;
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 		$wpdb->insert(
 			$wpdb->prefix . 'digibayt_2fa_logs',
 			array(

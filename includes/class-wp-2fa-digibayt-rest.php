@@ -17,49 +17,49 @@ class WP_2FA_Auth_DigiBayt_REST {
 	 * Register REST API routes
 	 */
 	public function register_routes() {
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/settings', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/settings', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_settings' ),
 			'permission_callback' => array( $this, 'check_admin_permission' ),
 		) );
 
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/settings', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/settings', array(
 			'methods'             => 'POST',
 			'callback'            => array( $this, 'update_settings' ),
 			'permission_callback' => array( $this, 'check_admin_permission' ),
 		) );
 
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/user/config', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/user/config', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_user_config' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/user/totp/setup', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/user/totp/setup', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'setup_totp' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/user/totp/verify', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/user/totp/verify', array(
 			'methods'             => 'POST',
 			'callback'            => array( $this, 'verify_totp' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/user/backup-codes/generate', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/user/backup-codes/generate', array(
 			'methods'             => 'POST',
 			'callback'            => array( $this, 'generate_backup_codes' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/logs', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/logs', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_logs' ),
 			'permission_callback' => array( $this, 'check_logs_permission' ),
 		) );
 
-		register_rest_route( 'wp-2fa-auth-digibayt/v1', '/stats', array(
+		register_rest_route( '2fa-auth-digibayt/v1', '/stats', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_stats' ),
 			'permission_callback' => array( $this, 'check_logs_permission' ),
@@ -71,8 +71,8 @@ class WP_2FA_Auth_DigiBayt_REST {
 	 */
 	public function get_logs() {
 		global $wpdb;
-		$table_name = $wpdb->prefix . 'digibayt_2fa_logs';
-		$logs = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $table_name ORDER BY created_at DESC LIMIT %d", 50 ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
+		$logs = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "digibayt_2fa_logs ORDER BY created_at DESC LIMIT %d", 50 ) );
 		return rest_ensure_response( $logs );
 	}
 
@@ -81,14 +81,15 @@ class WP_2FA_Auth_DigiBayt_REST {
 	 */
 	public function get_stats() {
 		global $wpdb;
-		$table_logs = $wpdb->prefix . 'digibayt_2fa_logs';
 		
 		$total_users = count_users()['total_users'];
 		
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$enabled_users = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(user_id) FROM $wpdb->usermeta WHERE meta_key = %s AND meta_value = %s", '_wp_2fa_auth_digibayt_enabled', 'yes' ) );
 		
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.DirectDatabaseQuery.NoCaching
 		$failed_attempts = $wpdb->get_var( $wpdb->prepare( 
-			"SELECT COUNT(*) FROM $table_logs WHERE event_type = %s AND created_at > %s",
+			"SELECT COUNT(*) FROM " . $wpdb->prefix . "digibayt_2fa_logs WHERE event_type = %s AND created_at > %s",
 			'login_failed',
 			gmdate( 'Y-m-d H:i:s', strtotime( '-24 hours' ) )
 		) );
