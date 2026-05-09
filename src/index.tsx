@@ -7,7 +7,7 @@ console.log( 'WP 2FA DigiBayt: Script loaded' );
 
 const startApp = () => {
 	console.log( 'WP 2FA DigiBayt: Initializing...' );
-	const container = document.getElementById( 'wp-2fa-digibayt-admin' );
+	const container = document.getElementById( 'wp-2fa-auth-digibayt-admin' );
 
 	if ( ! container ) {
 		console.error( 'WP 2FA DigiBayt: Container not found!' );

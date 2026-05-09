@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WP_2FA_DigiBayt_Backup_Codes {
+class WP_2FA_Auth_DigiBayt_Backup_Codes {
 
 	/**
 	 * Generate a set of backup codes
@@ -25,14 +25,14 @@ class WP_2FA_DigiBayt_Backup_Codes {
 	 */
 	public function save_codes( $user_id, $codes ) {
 		$hashed_codes = array_map( 'wp_hash_password', $codes );
-		update_user_meta( $user_id, '_wp_2fa_digibayt_backup_codes', $hashed_codes );
+		update_user_meta( $user_id, '_wp_2fa_auth_digibayt_backup_codes', $hashed_codes );
 	}
 
 	/**
 	 * Verify and consume a backup code
 	 */
 	public function verify_code( $user_id, $code ) {
-		$hashed_codes = get_user_meta( $user_id, '_wp_2fa_digibayt_backup_codes', true );
+		$hashed_codes = get_user_meta( $user_id, '_wp_2fa_auth_digibayt_backup_codes', true );
 		if ( ! is_array( $hashed_codes ) ) {
 			return false;
 		}
@@ -41,7 +41,7 @@ class WP_2FA_DigiBayt_Backup_Codes {
 			if ( wp_check_password( $code, $hashed_code ) ) {
 				// Remove the used code
 				unset( $hashed_codes[ $index ] );
-				update_user_meta( $user_id, '_wp_2fa_digibayt_backup_codes', array_values( $hashed_codes ) );
+				update_user_meta( $user_id, '_wp_2fa_auth_digibayt_backup_codes', array_values( $hashed_codes ) );
 				return true;
 			}
 		}

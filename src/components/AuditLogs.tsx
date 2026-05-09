@@ -5,8 +5,9 @@ const AuditLogs: React.FC = () => {
 	const [ logs, setLogs ] = useState( [] );
 
 	useEffect( () => {
-		apiFetch( { path: '/wp-2fa-digibayt/v1/logs' } ).then( ( res: any ) => {
-			if ( res ) setLogs( res );
+		apiFetch( { path: '/wp-2fa-auth-digibayt/v1/logs' } ).then( ( res: any ) => {
+			setLogs( res );
+
 		} );
 	}, [] );
 

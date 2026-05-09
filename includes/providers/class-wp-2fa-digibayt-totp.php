@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WP_2FA_DigiBayt_TOTP {
+class WP_2FA_Auth_DigiBayt_TOTP {
 
 	/**
 	 * Generate a new TOTP secret

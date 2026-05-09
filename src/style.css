@@ -1,4 +1,4 @@
-.wp-2fa-digibayt-wrap {
+.wp-2fa-auth-digibayt-wrap {
 	margin: 20px;
 	background: #fff;
 	padding: 20px;
@@ -6,12 +6,12 @@
 	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-.wp-2fa-digibayt-wrap .header h1 {
+.wp-2fa-auth-digibayt-wrap .header h1 {
 	margin: 0;
 	color: #1d2327;
 }
 
-.wp-2fa-digibayt-wrap .header .description {
+.wp-2fa-auth-digibayt-wrap .header .description {
 	color: #646970;
 	font-size: 14px;
 	margin-top: 5px;

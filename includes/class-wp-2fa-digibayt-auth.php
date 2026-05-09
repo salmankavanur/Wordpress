@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class WP_2FA_DigiBayt_Auth {
+class WP_2FA_Auth_DigiBayt_Auth {
 
 	public function __construct() {
 		// Hook into WP authentication
@@ -23,26 +23,26 @@ class WP_2FA_DigiBayt_Auth {
 	 * Render the 2FA Form on the login page
 	 */
 	public function render_2fa_form() {
-		if ( ! isset( $_COOKIE['wp_2fa_digibayt_pending'] ) ) {
+		if ( ! isset( $_COOKIE['wp_2fa_auth_digibayt_pending'] ) ) {
 			wp_safe_redirect( wp_login_url() );
 			exit;
 		}
 
-		login_header( __( 'Two-Factor Authentication', 'wp-2fa-digibayt' ) );
+		login_header( __( 'Two-Factor Authentication', 'wp-2fa-auth-digibayt' ) );
 		?>
 		<form name="2faform" id="2faform" action="<?php echo esc_url( wp_login_url() ); ?>" method="post">
 			<p>
-				<label for="2fa_code"><?php _e( 'Verification Code', 'wp-2fa-digibayt' ); ?><br />
+				<label for="2fa_code"><?php esc_html_e( 'Verification Code', 'wp-2fa-auth-digibayt' ); ?><br />
 				<input type="text" name="2fa_code" id="2fa_code" class="input" value="" size="20" autofocus autocomplete="one-time-code" /></label>
 			</p>
-			<?php wp_nonce_field( 'wp_2fa_digibayt_verify' ); ?>
+			<?php wp_nonce_field( 'wp_2fa_auth_digibayt_verify' ); ?>
 			<input type="hidden" name="wp-2fa-verify" value="1" />
 			<p class="submit">
-				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php esc_attr_e( 'Verify', 'wp-2fa-digibayt' ); ?>" />
+				<input type="submit" name="wp-submit" id="wp-submit" class="button button-primary button-large" value="<?php echo esc_attr__( 'Verify', 'wp-2fa-auth-digibayt' ); ?>" />
 			</p>
 		</form>
 		<p id="backtoblog">
-			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( '&larr; Back to Login', 'wp-2fa-digibayt' ); ?></a>
+			<a href="<?php echo esc_url( wp_login_url() ); ?>"><?php _e( '&larr; Back to Login', 'wp-2fa-auth-digibayt' ); ?></a>
 		</p>
 		<?php
 		login_footer();
@@ -57,21 +57,21 @@ class WP_2FA_DigiBayt_Auth {
 			return;
 		}
 
-		check_admin_referer( 'wp_2fa_digibayt_verify' );
+		check_admin_referer( 'wp_2fa_auth_digibayt_verify' );
 
-		$token = $_COOKIE['wp_2fa_digibayt_pending'] ?? '';
-		$user_id = get_transient( 'wp_2fa_digibayt_login_' . $token );
+		$token = isset( $_COOKIE['wp_2fa_auth_digibayt_pending'] ) ? sanitize_text_field( wp_unslash( $_COOKIE['wp_2fa_auth_digibayt_pending'] ) ) : '';
+		$user_id = get_transient( 'wp_2fa_auth_digibayt_login_' . $token );
 
 		if ( ! $user_id ) {
-			wp_die( __( 'Session expired. Please try logging in again.', 'wp-2fa-digibayt' ) );
+			wp_die( esc_html__( 'Session expired. Please try logging in again.', 'wp-2fa-auth-digibayt' ) );
 		}
 
-		$code = sanitize_text_field( $_POST['2fa_code'] );
+		$code = isset( $_POST['2fa_code'] ) ? sanitize_text_field( wp_unslash( $_POST['2fa_code'] ) ) : '';
 		
 		if ( $this->verify_code( $user_id, $code ) ) {
 			// Success! Clear 2FA session and log the user in
-			delete_transient( 'wp_2fa_digibayt_login_' . $token );
-			setcookie( 'wp_2fa_digibayt_pending', '', time() - 3600, COOKIEPATH, COOKIE_DOMAIN );
+			delete_transient( 'wp_2fa_auth_digibayt_login_' . $token );
+			setcookie( 'wp_2fa_auth_digibayt_pending', '', time() - 3600, COOKIEPATH, COOKIE_DOMAIN );
 
 			// Trust this device
 			$this->trust_current_device( $user_id );
@@ -87,7 +87,7 @@ class WP_2FA_DigiBayt_Auth {
 		} else {
 			// Fail!
 			$this->log_event( $user_id, 'login_failed', 'Failed 2FA login attempt' );
-			wp_die( __( 'Invalid verification code.', 'wp-2fa-digibayt' ) );
+			wp_die( esc_html__( 'Invalid verification code.', 'wp-2fa-auth-digibayt' ) );
 		}
 	}
 
@@ -96,17 +96,17 @@ class WP_2FA_DigiBayt_Auth {
 	 */
 	private function verify_code( $user_id, $code ) {
 		// Try TOTP
-		if ( class_exists( 'WP_2FA_DigiBayt_TOTP' ) ) {
-			$totp = new WP_2FA_DigiBayt_TOTP();
-			$secret = get_user_meta( $user_id, '_wp_2fa_digibayt_totp_secret', true );
+		if ( class_exists( 'WP_2FA_Auth_DigiBayt_TOTP' ) ) {
+			$totp = new WP_2FA_Auth_DigiBayt_TOTP();
+			$secret = get_user_meta( $user_id, '_wp_2fa_auth_digibayt_totp_secret', true );
 			if ( $secret && $totp->verify_code( $secret, $code ) ) {
 				return true;
 			}
 		}
 
 		// Try Backup Codes
-		if ( class_exists( 'WP_2FA_DigiBayt_Backup_Codes' ) ) {
-			$bc = new WP_2FA_DigiBayt_Backup_Codes();
+		if ( class_exists( 'WP_2FA_Auth_DigiBayt_Backup_Codes' ) ) {
+			$bc = new WP_2FA_Auth_DigiBayt_Backup_Codes();
 			if ( $bc->verify_code( $user_id, $code ) ) {
 				return true;
 			}
@@ -126,7 +126,7 @@ class WP_2FA_DigiBayt_Auth {
 				'user_id'     => $user_id,
 				'event_type'  => $type,
 				'description' => $description,
-				'ip_address'  => $_SERVER['REMOTE_ADDR'],
+				'ip_address'  => isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '',
 				'created_at'  => current_time( 'mysql' ),
 			)
 		);
@@ -157,13 +157,13 @@ class WP_2FA_DigiBayt_Auth {
 	 * Check if the current device is trusted
 	 */
 	private function is_trusted_device( $user_id ) {
-		$cookie_name = 'wp_2fa_digibayt_trusted_' . COOKIEHASH;
+		$cookie_name = 'wp_2fa_auth_digibayt_trusted_' . COOKIEHASH;
 		if ( ! isset( $_COOKIE[ $cookie_name ] ) ) {
 			return false;
 		}
 
-		$token = $_COOKIE[ $cookie_name ];
-		$trusted_devices = get_user_meta( $user_id, '_wp_2fa_digibayt_trusted_devices', true );
+		$token = sanitize_text_field( wp_unslash( $_COOKIE[ $cookie_name ] ) );
+		$trusted_devices = get_user_meta( $user_id, '_wp_2fa_auth_digibayt_trusted_devices', true );
 
 		if ( ! is_array( $trusted_devices ) ) {
 			return false;
@@ -176,7 +176,7 @@ class WP_2FA_DigiBayt_Auth {
 				} else {
 					// Expired, remove it
 					unset( $trusted_devices[ $index ] );
-					update_user_meta( $user_id, '_wp_2fa_digibayt_trusted_devices', array_values( $trusted_devices ) );
+					update_user_meta( $user_id, '_wp_2fa_auth_digibayt_trusted_devices', array_values( $trusted_devices ) );
 				}
 			}
 		}
@@ -188,7 +188,7 @@ class WP_2FA_DigiBayt_Auth {
 	 * Add the current device to trusted devices
 	 */
 	private function trust_current_device( $user_id ) {
-		$settings = get_option( 'wp_2fa_digibayt_settings', array() );
+		$settings = get_option( 'wp_2fa_auth_digibayt_settings', array() );
 		$days = $settings['remember_device'] ?? 0;
 		if ( $days <= 0 ) {
 			return;
@@ -196,11 +196,11 @@ class WP_2FA_DigiBayt_Auth {
 
 		$token = wp_generate_password( 64, false );
 		$expires = time() + ( $days * DAY_IN_SECONDS );
-		$cookie_name = 'wp_2fa_digibayt_trusted_' . COOKIEHASH;
+		$cookie_name = 'wp_2fa_auth_digibayt_trusted_' . COOKIEHASH;
 
 		setcookie( $cookie_name, $token, $expires, COOKIEPATH, COOKIE_DOMAIN, is_ssl(), true );
 
-		$trusted_devices = get_user_meta( $user_id, '_wp_2fa_digibayt_trusted_devices', true );
+		$trusted_devices = get_user_meta( $user_id, '_wp_2fa_auth_digibayt_trusted_devices', true );
 		if ( ! is_array( $trusted_devices ) ) {
 			$trusted_devices = array();
 		}
@@ -208,8 +208,8 @@ class WP_2FA_DigiBayt_Auth {
 		$trusted_devices[] = array(
 			'token'   => hash( 'sha256', $token ),
 			'expires' => $expires,
-			'ip'      => $_SERVER['REMOTE_ADDR'],
-			'ua'      => $_SERVER['HTTP_USER_AGENT'],
+			'ip'      => isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '',
+			'ua'      => isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '',
 		);
 
 		// Keep only last 10 devices
@@ -217,7 +217,7 @@ class WP_2FA_DigiBayt_Auth {
 			array_shift( $trusted_devices );
 		}
 
-		update_user_meta( $user_id, '_wp_2fa_digibayt_trusted_devices', $trusted_devices );
+		update_user_meta( $user_id, '_wp_2fa_auth_digibayt_trusted_devices', $trusted_devices );
 	}
 
 	/**
@@ -244,12 +244,12 @@ class WP_2FA_DigiBayt_Auth {
 	 */
 	public function is_2fa_enabled( $user_id ) {
 		// Individual setting
-		if ( get_user_meta( $user_id, '_wp_2fa_digibayt_enabled', true ) === 'yes' ) {
+		if ( get_user_meta( $user_id, '_wp_2fa_auth_digibayt_enabled', true ) === 'yes' ) {
 			return true;
 		}
 
 		// Role Enforcement
-		$settings = get_option( 'wp_2fa_digibayt_settings', array() );
+		$settings = get_option( 'wp_2fa_auth_digibayt_settings', array() );
 		if ( ! empty( $settings['enforce_admins'] ) ) {
 			$user = get_userdata( $user_id );
 			if ( $user && in_array( 'administrator', (array) $user->roles ) ) {
@@ -277,7 +277,7 @@ class WP_2FA_DigiBayt_Auth {
 	 */
 	private function start_2fa_session( $user_id ) {
 		$token = wp_generate_password( 40, false );
-		set_transient( 'wp_2fa_digibayt_login_' . $token, $user_id, 15 * MINUTE_IN_SECONDS );
-		setcookie( 'wp_2fa_digibayt_pending', $token, time() + 15 * MINUTE_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN, is_ssl(), true );
+		set_transient( 'wp_2fa_auth_digibayt_login_' . $token, $user_id, 15 * MINUTE_IN_SECONDS );
+		setcookie( 'wp_2fa_auth_digibayt_pending', $token, time() + 15 * MINUTE_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN, is_ssl(), true );
 	}
 }

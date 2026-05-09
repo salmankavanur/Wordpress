@@ -9,7 +9,7 @@ const Dashboard: React.FC = () => {
 	} );
 
 	useEffect( () => {
-		apiFetch( { path: '/wp-2fa-digibayt/v1/stats' } ).then(
+		apiFetch( { path: '/wp-2fa-auth-digibayt/v1/stats' } ).then(
 			( res: any ) => {
 				if ( res ) setStats( res );
 			}

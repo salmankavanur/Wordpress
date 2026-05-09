@@ -1,0 +1,496 @@
+{
+    "generated_at": "2026-05-09 18:09:02",
+    "plugin": "WP 2FA Auth by DigiBayt",
+    "results": {
+        "includes/class-wp-2fa-digibayt-auth.php": [
+            {
+                "message": "All output should be run through an escaping function (like esc_html_e() or esc_attr_e()), found '_e'.",
+                "code": "WordPress.Security.EscapeOutput.UnsafePrintingFunction",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=35",
+                "docs": "https://developer.wordpress.org/apis/security/escaping/#escaping-with-localization",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 35,
+                "column": 45
+            },
+            {
+                "message": "All output should be run through an escaping function (like esc_html_e() or esc_attr_e()), found '_e'.",
+                "code": "WordPress.Security.EscapeOutput.UnsafePrintingFunction",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=45",
+                "docs": "https://developer.wordpress.org/apis/security/escaping/#escaping-with-localization",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 45,
+                "column": 70
+            },
+            {
+                "message": "$_COOKIE[&#039;wp_2fa_auth_digibayt_pending&#039;] not unslashed before sanitization. Use wp_unslash() or similar",
+                "code": "WordPress.Security.ValidatedSanitizedInput.MissingUnslash",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=62",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 62,
+                "column": 12
+            },
+            {
+                "message": "Detected usage of a non-sanitized input variable: $_COOKIE[&#039;wp_2fa_auth_digibayt_pending&#039;]",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotSanitized",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=62",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 62,
+                "column": 12
+            },
+            {
+                "message": "All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found '__'.",
+                "code": "WordPress.Security.EscapeOutput.OutputNotEscaped",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=66",
+                "docs": "https://developer.wordpress.org/apis/security/escaping/#escaping-functions",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 66,
+                "column": 21
+            },
+            {
+                "message": "$_POST[&#039;2fa_code&#039;] not unslashed before sanitization. Use wp_unslash() or similar",
+                "code": "WordPress.Security.ValidatedSanitizedInput.MissingUnslash",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=69",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 69,
+                "column": 32
+            },
+            {
+                "message": "All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found '__'.",
+                "code": "WordPress.Security.EscapeOutput.OutputNotEscaped",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=90",
+                "docs": "https://developer.wordpress.org/apis/security/escaping/#escaping-functions",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 90,
+                "column": 21
+            },
+            {
+                "message": "Use of a direct database call is discouraged.",
+                "code": "WordPress.DB.DirectDatabaseQuery.DirectQuery",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=123",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 123,
+                "column": 9
+            },
+            {
+                "message": "Detected usage of a possibly undefined superglobal array index: $_SERVER[&#039;REMOTE_ADDR&#039;]. Check that the array index exists before using it.",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotValidated",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=129",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 129,
+                "column": 22
+            },
+            {
+                "message": "$_SERVER[&#039;REMOTE_ADDR&#039;] not unslashed before sanitization. Use wp_unslash() or similar",
+                "code": "WordPress.Security.ValidatedSanitizedInput.MissingUnslash",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=129",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 129,
+                "column": 22
+            },
+            {
+                "message": "Detected usage of a non-sanitized input variable: $_SERVER[&#039;REMOTE_ADDR&#039;]",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotSanitized",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=129",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 129,
+                "column": 22
+            },
+            {
+                "message": "$_COOKIE[$cookie_name] not unslashed before sanitization. Use wp_unslash() or similar",
+                "code": "WordPress.Security.ValidatedSanitizedInput.MissingUnslash",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=165",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 165,
+                "column": 12
+            },
+            {
+                "message": "Detected usage of a non-sanitized input variable: $_COOKIE[$cookie_name]",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotSanitized",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=165",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 165,
+                "column": 12
+            },
+            {
+                "message": "Detected usage of a possibly undefined superglobal array index: $_SERVER[&#039;REMOTE_ADDR&#039;]. Check that the array index exists before using it.",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotValidated",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=211",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 211,
+                "column": 17
+            },
+            {
+                "message": "$_SERVER[&#039;REMOTE_ADDR&#039;] not unslashed before sanitization. Use wp_unslash() or similar",
+                "code": "WordPress.Security.ValidatedSanitizedInput.MissingUnslash",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=211",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 211,
+                "column": 17
+            },
+            {
+                "message": "Detected usage of a non-sanitized input variable: $_SERVER[&#039;REMOTE_ADDR&#039;]",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotSanitized",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=211",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 211,
+                "column": 17
+            },
+            {
+                "message": "Detected usage of a possibly undefined superglobal array index: $_SERVER[&#039;HTTP_USER_AGENT&#039;]. Check that the array index exists before using it.",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotValidated",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=212",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 212,
+                "column": 17
+            },
+            {
+                "message": "$_SERVER[&#039;HTTP_USER_AGENT&#039;] not unslashed before sanitization. Use wp_unslash() or similar",
+                "code": "WordPress.Security.ValidatedSanitizedInput.MissingUnslash",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=212",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 212,
+                "column": 17
+            },
+            {
+                "message": "Detected usage of a non-sanitized input variable: $_SERVER[&#039;HTTP_USER_AGENT&#039;]",
+                "code": "WordPress.Security.ValidatedSanitizedInput.InputNotSanitized",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-auth.php&line=212",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 212,
+                "column": 17
+            }
+        ],
+        "wp-2fa-auth-digibayt.php": [
+            {
+                "message": "The \"Domain Path\" header in the plugin file must point to an existing folder. Found: \"languages\"",
+                "code": "plugin_header_nonexistent_domain_path",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php",
+                "docs": "https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#domain-path",
+                "severity": 6,
+                "type": "WARNING",
+                "line": 0,
+                "column": 0
+            },
+            {
+                "message": "The plugin name includes a restricted term. Your chosen plugin name - \"WP 2FA Auth by DigiBayt\" - contains the restricted term \"wp\" which cannot be used at all in your plugin name.",
+                "code": "trademarked_term",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 0,
+                "column": 0
+            },
+            {
+                "message": "The plugin slug includes a restricted term. Your plugin slug - \"wp-2fa-auth-digibayt\" - contains the restricted term \"wp\" which cannot be used at all in your plugin slug.",
+                "code": "trademarked_term",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 0,
+                "column": 0
+            },
+            {
+                "message": "Global variables defined by a theme/plugin should start with the theme/plugin prefix. Found: &quot;$file&quot;.",
+                "code": "WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&line=36",
+                "docs": "",
+                "severity": 6,
+                "type": "WARNING",
+                "line": 36,
+                "column": 33
+            },
+            {
+                "message": "All output should be run through an escaping function (see the Security sections in the WordPress Developer Handbooks), found '__'.",
+                "code": "WordPress.Security.EscapeOutput.OutputNotEscaped",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&line=85",
+                "docs": "https://developer.wordpress.org/apis/security/escaping/#escaping-functions",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 85,
+                "column": 55
+            }
+        ],
+        "includes/class-wp-2fa-digibayt-rest.php": [
+            {
+                "message": "Use of a direct database call is discouraged.",
+                "code": "WordPress.DB.DirectDatabaseQuery.DirectQuery",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=75",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 75,
+                "column": 17
+            },
+            {
+                "message": "Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().",
+                "code": "WordPress.DB.DirectDatabaseQuery.NoCaching",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=75",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 75,
+                "column": 17
+            },
+            {
+                "message": "Unescaped parameter $table_name used in $wpdb-&gt;get_results()\\n$table_name assigned unsafely at line 74.",
+                "code": "PluginCheck.Security.DirectDB.UnescapedDBParameter",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=75",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 75,
+                "column": 18
+            },
+            {
+                "message": "Use placeholders and $wpdb-&gt;prepare(); found interpolated variable $table_name at &quot;SELECT * FROM $table_name ORDER BY created_at DESC LIMIT 50&quot;",
+                "code": "WordPress.DB.PreparedSQL.InterpolatedNotPrepared",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=75",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 75,
+                "column": 31
+            },
+            {
+                "message": "Use of a direct database call is discouraged.",
+                "code": "WordPress.DB.DirectDatabaseQuery.DirectQuery",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=88",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 88,
+                "column": 26
+            },
+            {
+                "message": "Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().",
+                "code": "WordPress.DB.DirectDatabaseQuery.NoCaching",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=88",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 88,
+                "column": 26
+            },
+            {
+                "message": "Use of a direct database call is discouraged.",
+                "code": "WordPress.DB.DirectDatabaseQuery.DirectQuery",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=90",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 90,
+                "column": 28
+            },
+            {
+                "message": "Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().",
+                "code": "WordPress.DB.DirectDatabaseQuery.NoCaching",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=90",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 90,
+                "column": 28
+            },
+            {
+                "message": "Unescaped parameter $table_logs used in $wpdb-&gt;get_var()\\n$table_logs assigned unsafely at line 84.",
+                "code": "PluginCheck.Security.DirectDB.UnescapedDBParameter",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=90",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 90,
+                "column": 29
+            },
+            {
+                "message": "Use placeholders and $wpdb-&gt;prepare(); found interpolated variable $table_logs at &quot;SELECT COUNT(*) FROM $table_logs WHERE event_type = &#039;login_failed&#039; AND created_at &gt; %s&quot;",
+                "code": "WordPress.DB.PreparedSQL.InterpolatedNotPrepared",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=91",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 91,
+                "column": 4
+            },
+            {
+                "message": "date() is affected by runtime timezone changes which can cause date/time to be incorrectly displayed. Use gmdate() instead.",
+                "code": "WordPress.DateTime.RestrictedFunctions.date_date",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=92",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 92,
+                "column": 4
+            },
+            {
+                "message": "parse_url() is discouraged because of inconsistency in the output across PHP versions; use wp_parse_url() instead.",
+                "code": "WordPress.WP.AlternativeFunctions.parse_url_parse_url",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Fincludes%2Fclass-wp-2fa-digibayt-rest.php&line=114",
+                "docs": "",
+                "severity": 5,
+                "type": "ERROR",
+                "line": 114,
+                "column": 57
+            }
+        ],
+        "readme.txt": [
+            {
+                "message": "Tested up to: 6.7 < 6.9. The \"Tested up to\" value in your plugin is not set to the current version of WordPress. This means your plugin will not show up in searches, as we require plugins to be compatible and documented as tested up to the most recent version of WordPress.",
+                "code": "outdated_tested_upto_header",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Freadme.txt",
+                "docs": "https://developer.wordpress.org/plugins/wordpress-org/how-your-readme-txt-works/#readme-header-information",
+                "severity": 7,
+                "type": "ERROR",
+                "line": 0,
+                "column": 0
+            },
+            {
+                "message": "One or more tags were ignored. Please limit your plugin to 5 tags.",
+                "code": "readme_parser_warnings_too_many_tags",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Freadme.txt",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 0,
+                "column": 0
+            },
+            {
+                "message": "The \"Short Description\" section is too long and was truncated. A maximum of 150 characters is supported.",
+                "code": "readme_parser_warnings_trimmed_short_description",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Freadme.txt",
+                "docs": "",
+                "severity": 6,
+                "type": "WARNING",
+                "line": 0,
+                "column": 0
+            },
+            {
+                "message": "The plugin name includes a restricted term. Your chosen plugin name - \"WP 2FA Auth by DigiBayt\" - contains the restricted term \"wp\" which cannot be used at all in your plugin name.",
+                "code": "trademarked_term",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Freadme.txt",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 0,
+                "column": 0
+            }
+        ],
+        "uninstall.php": [
+            {
+                "message": "Use of a direct database call is discouraged.",
+                "code": "WordPress.DB.DirectDatabaseQuery.DirectQuery",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=15",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 15,
+                "column": 1
+            },
+            {
+                "message": "Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().",
+                "code": "WordPress.DB.DirectDatabaseQuery.NoCaching",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=15",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 15,
+                "column": 1
+            },
+            {
+                "message": "Global variables defined by a theme/plugin should start with the theme/plugin prefix. Found: &quot;$table_name&quot;.",
+                "code": "WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=18",
+                "docs": "",
+                "severity": 6,
+                "type": "WARNING",
+                "line": 18,
+                "column": 1
+            },
+            {
+                "message": "Use of a direct database call is discouraged.",
+                "code": "WordPress.DB.DirectDatabaseQuery.DirectQuery",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=19",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 19,
+                "column": 1
+            },
+            {
+                "message": "Direct database call without caching detected. Consider using wp_cache_get() / wp_cache_set() or wp_cache_delete().",
+                "code": "WordPress.DB.DirectDatabaseQuery.NoCaching",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=19",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 19,
+                "column": 1
+            },
+            {
+                "message": "Unescaped parameter $table_name used in $wpdb-&gt;query()\\n$table_name assigned unsafely at line 18.",
+                "code": "PluginCheck.Security.DirectDB.UnescapedDBParameter",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=19",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 19,
+                "column": 8
+            },
+            {
+                "message": "Use placeholders and $wpdb-&gt;prepare(); found interpolated variable $table_name at &quot;DROP TABLE IF EXISTS $table_name&quot;",
+                "code": "WordPress.DB.PreparedSQL.InterpolatedNotPrepared",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=19",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 19,
+                "column": 15
+            },
+            {
+                "message": "Attempting a database schema change is discouraged.",
+                "code": "WordPress.DB.DirectDatabaseQuery.SchemaChange",
+                "link": "https://darshanammagazine.com/wp-admin/plugin-editor.php?plugin=wp-2fa-auth-digibayt%2Fwp-2fa-auth-digibayt.php&file=wp-2fa-auth-digibayt%2Funinstall.php&line=19",
+                "docs": "",
+                "severity": 5,
+                "type": "WARNING",
+                "line": 19,
+                "column": 15
+            }
+        ]
+    }
+}
