@@ -5,7 +5,7 @@ const AuditLogs: React.FC = () => {
 	const [ logs, setLogs ] = useState( [] );
 
 	useEffect( () => {
-		apiFetch( { path: '/2fa-auth-digibayt/v1/logs' } ).then( ( res: any ) => {
+		apiFetch( { path: '/2fa-auth-by-digibayt/v1/logs' } ).then( ( res: any ) => {
 			setLogs( res );
 
 		} );

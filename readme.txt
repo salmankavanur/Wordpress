@@ -25,7 +25,7 @@ Secure your WordPress website with industry-standard Two-Factor Authentication. 
 
 == Installation ==
 
-1. Upload the `2fa-auth-digibayt.zip` file through the WordPress 'Plugins' menu or manually to the `/wp-content/plugins/` directory.
+1. Upload the `2fa-auth-by-digibayt.zip` file through the WordPress 'Plugins' menu or manually to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Navigate to the **WP 2FA Auth** menu in your sidebar to configure settings.
 4. Go to the **My Security** tab to set up 2FA for your account.

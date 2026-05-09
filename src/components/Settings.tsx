@@ -17,7 +17,7 @@ const Settings: React.FC = () => {
 	const [ notice, setNotice ] = useState< string | null >( null );
 
 	useEffect( () => {
-		apiFetch( { path: '/2fa-auth-digibayt/v1/settings' } ).then(
+		apiFetch( { path: '/2fa-auth-by-digibayt/v1/settings' } ).then(
 			( res: any ) => {
 				if (
 					res &&
@@ -37,7 +37,7 @@ const Settings: React.FC = () => {
 	const saveSettings = () => {
 		setIsSaving( true );
 		apiFetch( {
-			path: '/2fa-auth-digibayt/v1/settings',
+			path: '/2fa-auth-by-digibayt/v1/settings',
 			method: 'POST',
 			data: settings,
 		} ).then( () => {

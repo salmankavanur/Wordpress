@@ -21,7 +21,7 @@ const SecuritySetup: React.FC = () => {
 	const fetchConfig = () => {
 		// Use timestamp to bypass any REST API caching
 		apiFetch( {
-			path: `/2fa-auth-digibayt/v1/user/config?_=${ Date.now() }`,
+			path: `/2fa-auth-by-digibayt/v1/user/config?_=${ Date.now() }`,
 		} ).then( ( res: any ) => {
 			if ( res ) setConfig( res );
 		} );
@@ -29,7 +29,7 @@ const SecuritySetup: React.FC = () => {
 
 	const startTotpSetup = () => {
 		apiFetch( {
-			path: `/2fa-auth-digibayt/v1/user/totp/setup?_=${ Date.now() }`,
+			path: `/2fa-auth-by-digibayt/v1/user/totp/setup?_=${ Date.now() }`,
 		} ).then( ( res: any ) => {
 			setTotpSetup( res );
 			setIsModalOpen( true );
@@ -38,7 +38,7 @@ const SecuritySetup: React.FC = () => {
 
 	const verifyTotp = () => {
 		apiFetch( {
-			path: '/2fa-auth-digibayt/v1/user/totp/verify',
+			path: '/2fa-auth-by-digibayt/v1/user/totp/verify',
 			method: 'POST',
 			data: { code: verificationCode },
 		} )
@@ -61,7 +61,7 @@ const SecuritySetup: React.FC = () => {
 
 	const generateBackupCodes = () => {
 		apiFetch( {
-			path: '/2fa-auth-digibayt/v1/user/backup-codes/generate',
+			path: '/2fa-auth-by-digibayt/v1/user/backup-codes/generate',
 			method: 'POST',
 		} ).then( ( res: any ) => {
 			setBackupCodes( res.codes );

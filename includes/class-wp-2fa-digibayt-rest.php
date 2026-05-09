@@ -17,49 +17,49 @@ class WP_2FA_Auth_DigiBayt_REST {
 	 * Register REST API routes
 	 */
 	public function register_routes() {
-		register_rest_route( '2fa-auth-digibayt/v1', '/settings', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/settings', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_settings' ),
 			'permission_callback' => array( $this, 'check_admin_permission' ),
 		) );
 
-		register_rest_route( '2fa-auth-digibayt/v1', '/settings', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/settings', array(
 			'methods'             => 'POST',
 			'callback'            => array( $this, 'update_settings' ),
 			'permission_callback' => array( $this, 'check_admin_permission' ),
 		) );
 
-		register_rest_route( '2fa-auth-digibayt/v1', '/user/config', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/user/config', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_user_config' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( '2fa-auth-digibayt/v1', '/user/totp/setup', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/user/totp/setup', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'setup_totp' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( '2fa-auth-digibayt/v1', '/user/totp/verify', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/user/totp/verify', array(
 			'methods'             => 'POST',
 			'callback'            => array( $this, 'verify_totp' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( '2fa-auth-digibayt/v1', '/user/backup-codes/generate', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/user/backup-codes/generate', array(
 			'methods'             => 'POST',
 			'callback'            => array( $this, 'generate_backup_codes' ),
 			'permission_callback' => array( $this, 'check_user_permission' ),
 		) );
 
-		register_rest_route( '2fa-auth-digibayt/v1', '/logs', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/logs', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_logs' ),
 			'permission_callback' => array( $this, 'check_logs_permission' ),
 		) );
 
-		register_rest_route( '2fa-auth-digibayt/v1', '/stats', array(
+		register_rest_route( '2fa-auth-by-digibayt/v1', '/stats', array(
 			'methods'             => 'GET',
 			'callback'            => array( $this, 'get_stats' ),
 			'permission_callback' => array( $this, 'check_logs_permission' ),
