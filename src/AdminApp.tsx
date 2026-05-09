@@ -30,7 +30,7 @@ const AdminApp: React.FC = () => {
 	];
 
 	return (
-		<div className="2fa-auth-digibayt-wrap">
+		<div className="digibayt-2fa-wrap">
 			<header className="header">
 				<h1>2FA Auth by DigiBayt</h1>
 				<p className="description">

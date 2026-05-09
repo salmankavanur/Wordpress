@@ -82,7 +82,7 @@ function wp_2fa_auth_digibayt_register_menu() {
 // 5. Admin Render
 function wp_2fa_auth_digibayt_render_admin() {
 	echo '<div class="wrap">';
-	echo '<div id="2fa-auth-digibayt-admin"><p>' . esc_html__( 'Loading Security Dashboard...', '2fa-auth-digibayt' ) . '</p></div>';
+	echo '<div id="digibayt-2fa-admin"><p>' . esc_html__( 'Loading Security Dashboard...', '2fa-auth-digibayt' ) . '</p></div>';
 	echo '</div>';
 }
 
@@ -97,14 +97,14 @@ function wp_2fa_auth_digibayt_enqueue_assets( $hook ) {
 	if ( file_exists( $asset_file ) ) {
 		$assets = require $asset_file;
 		wp_enqueue_script(
-			'2fa-auth-digibayt-admin',
+			'digibayt-2fa-admin',
 			WP_2FA_AUTH_DIGIBAYT_URL . 'build/index.js',
 			$assets['dependencies'],
 			$assets['version'],
 			true
 		);
 		wp_enqueue_style(
-			'2fa-auth-digibayt-admin',
+			'digibayt-2fa-admin',
 			WP_2FA_AUTH_DIGIBAYT_URL . 'build/style-index.css',
 			array(),
 			$assets['version']
