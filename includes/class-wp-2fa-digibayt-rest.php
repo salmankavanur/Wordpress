@@ -72,7 +72,7 @@ class WP_2FA_Auth_DigiBayt_REST {
 	public function get_logs() {
 		global $wpdb;
 		$table_name = $wpdb->prefix . 'digibayt_2fa_logs';
-		$logs = $wpdb->get_results( "SELECT * FROM $table_name ORDER BY created_at DESC LIMIT 50" );
+		$logs = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM $table_name ORDER BY created_at DESC LIMIT %d", 50 ) );
 		return rest_ensure_response( $logs );
 	}
 
@@ -85,11 +85,12 @@ class WP_2FA_Auth_DigiBayt_REST {
 		
 		$total_users = count_users()['total_users'];
 		
-		$enabled_users = $wpdb->get_var( "SELECT COUNT(user_id) FROM $wpdb->usermeta WHERE meta_key = '_wp_2fa_auth_digibayt_enabled' AND meta_value = 'yes'" );
+		$enabled_users = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(user_id) FROM $wpdb->usermeta WHERE meta_key = %s AND meta_value = %s", '_wp_2fa_auth_digibayt_enabled', 'yes' ) );
 		
 		$failed_attempts = $wpdb->get_var( $wpdb->prepare( 
-			"SELECT COUNT(*) FROM $table_logs WHERE event_type = 'login_failed' AND created_at > %s",
-			date( 'Y-m-d H:i:s', strtotime( '-24 hours' ) )
+			"SELECT COUNT(*) FROM $table_logs WHERE event_type = %s AND created_at > %s",
+			'login_failed',
+			gmdate( 'Y-m-d H:i:s', strtotime( '-24 hours' ) )
 		) );
 
 		return rest_ensure_response( array(
@@ -111,7 +112,7 @@ class WP_2FA_Auth_DigiBayt_REST {
 		$secret = $totp->generate_secret();
 		
 		// Use Site Name and Host as Issuer for better identification in apps
-		$issuer = sprintf( '%s (%s)', get_bloginfo( 'name' ), parse_url( home_url(), PHP_URL_HOST ) );
+		$issuer = sprintf( '%s (%s)', get_bloginfo( 'name' ), wp_parse_url( home_url(), PHP_URL_HOST ) );
 		
 		// Temporarily store secret in user meta until verified
 		update_user_meta( $user->ID, '_wp_2fa_auth_digibayt_totp_pending_secret', $secret );

@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name:       WP 2FA Auth by DigiBayt
- * Plugin URI:        https://digibayt.com/wp-2fa-auth
- * Description:       Secure your WordPress site with TOTP (Authenticator Apps), Backup Codes, and Security Audit Logs. Features local QR generation for maximum privacy.
+ * Plugin Name:       2FA Auth by DigiBayt
+ * Plugin URI:        https://digibayt.com/2fa-auth
+ * Description:       Secure your site with TOTP, Backup Codes, and Security Audit Logs. Features local QR generation for maximum privacy.
  * Version:           1.0.0
  * Author:            DigiBayt
  * Author URI:        https://digibayt.com
@@ -33,10 +33,10 @@ $wp_2fa_core_files = array(
 	'includes/providers/class-wp-2fa-digibayt-backup-codes.php',
 );
 
-foreach ( $wp_2fa_core_files as $file ) {
-    $path = WP_2FA_AUTH_DIGIBAYT_PATH . $file;
-	if ( file_exists( $path ) ) {
-		require_once $path;
+foreach ( $wp_2fa_core_files as $wp_2fa_file ) {
+    $wp_2fa_path = WP_2FA_AUTH_DIGIBAYT_PATH . $wp_2fa_file;
+	if ( file_exists( $wp_2fa_path ) ) {
+		require_once $wp_2fa_path;
 	}
 }
 
@@ -69,8 +69,8 @@ function wp_2fa_auth_digibayt_register_menu() {
 	$icon = 'data:image/svg+xml;base64,' . base64_encode('<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="currentColor" d="M10 1L3 4v6c0 5.55 3.84 10.74 7 12c3.16-1.26 7-6.45 7-12V4l-7-3zm0 10.94l-2.12 2.12l-1.41-1.41L8.59 10.5L6.47 8.38l1.41-1.41L10 9.09l2.12-2.12l1.41 1.41L11.41 10.5l2.12 2.12l-1.41 1.41L10 11.94z"/></svg>');
 
 	add_menu_page(
-		__( 'WP 2FA Auth', 'wp-2fa-auth-digibayt' ),
-		__( 'WP 2FA Auth', 'wp-2fa-auth-digibayt' ),
+		esc_html__( '2FA Auth', 'wp-2fa-auth-digibayt' ),
+		esc_html__( '2FA Auth', 'wp-2fa-auth-digibayt' ),
 		WP_2FA_AUTH_DIGIBAYT_CAPABILITY,
 		'wp-2fa-auth',
 		'wp_2fa_auth_digibayt_render_admin',
@@ -82,7 +82,7 @@ function wp_2fa_auth_digibayt_register_menu() {
 // 5. Admin Render
 function wp_2fa_auth_digibayt_render_admin() {
 	echo '<div class="wrap">';
-	echo '<div id="wp-2fa-auth-digibayt-admin"><p>' . __( 'Loading Security Dashboard...', 'wp-2fa-auth-digibayt' ) . '</p></div>';
+	echo '<div id="wp-2fa-auth-digibayt-admin"><p>' . esc_html__( 'Loading Security Dashboard...', 'wp-2fa-auth-digibayt' ) . '</p></div>';
 	echo '</div>';
 }
 

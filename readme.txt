@@ -1,6 +1,6 @@
-=== WP 2FA Auth by DigiBayt ===
+=== 2FA Auth by DigiBayt ===
 Contributors: digibayt
-Tags: 2fa, two-factor authentication, security, totp, backup codes, login security
+Tags: 2fa, two-factor authentication, security, totp, backup codes
 Requires at least: 5.8
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -8,11 +8,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-A premium, full-featured Two-Factor Authentication (2FA) plugin for WordPress. Secure your site with TOTP (Google Authenticator, Authy), Backup Codes, and Audit Logging.
+Secure your site with TOTP, Backup Codes, and Audit Logging. Features local QR generation for maximum privacy.
 
 == Description ==
 
-Secure your WordPress website with industry-standard Two-Factor Authentication. **WP 2FA Auth by DigiBayt** provides a robust security layer without relying on external APIs for QR code generation, ensuring maximum privacy and reliability.
+Secure your WordPress website with industry-standard Two-Factor Authentication. **2FA Auth by DigiBayt** provides a robust security layer.
 
 = Key Features =
 * **TOTP Support**: Compatible with Google Authenticator, Authy, Microsoft Authenticator, and more.
